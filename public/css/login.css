@@ -2,28 +2,38 @@ body{
     margin : 0;
     padding : 0;
     font-family : Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: white;
     height: 100vh;
-    background-color: #f5f5dc;
+   
 }
-
-.content-wrapper{
+.navbar{
+    background-color: white;
+}
+.logo{
+    padding-left:20px;
+}
+ .content-wrapper{
     display:flex;
-    width :900px;
-    height: 400px;
+    width :100%;
+    justify-content: center;
+  
+    align-items: center;
+    height: 100%;
     box-shadow: 0 0 10px rgba(0,0,0, 0.1);
     border-radius:10px ;
     overflow: hidden;
 }
-
+.form-wrapper{
+    display:flex;
+ 
+}
 .left-wrapper{
     flex:1;
     background: url('../pics/login.jpg') no-repeat center center;
     background-size: cover;
     color: white;
     display: flex;
+    width:435px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -48,7 +58,14 @@ form {
     flex-direction: column;
     margin-bottom: 20px;
 }
-
+.input-password
+{
+    display:flex;
+}
+.input-password-detail
+{
+    width:344px;
+}
 label {
     margin-bottom: 5px;
     color: #8e44ad; /* Warm, inviting color for labels */
@@ -83,7 +100,7 @@ button:hover {
     background-color: #d35400;
 }
 
-a {
+.link-register{
     margin-top: 10px;
     color: #e67e22;
     text-decoration: none;
@@ -91,6 +108,6 @@ a {
     text-align: center;
 }
 
-a:hover {
+.link-register:hover {
     text-decoration: underline;
 }

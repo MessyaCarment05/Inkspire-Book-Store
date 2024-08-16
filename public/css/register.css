@@ -2,26 +2,38 @@ body{
     margin : 0;
     padding : 0;
     font-family : Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: white;
     height: 100vh;
-    background-color: #f5f5dc;
+    
 }
+.logo{
+    padding-left:20px;
 
+}
+.navbar
+{
+    background-color: white;
+}
 .content-wrapper{
     display:flex;
-    width :900px;
-    height: 550px;
+    width :100%;
+    justify-content: center;
+  
+    align-items: center;
+    height: 100%;
     box-shadow: 0 0 10px rgba(0,0,0, 0.1);
     border-radius:10px ;
     overflow: hidden;
 }
-
+.form-wrapper{
+    display:flex;
+ 
+}
 .left-wrapper{
     flex:1;
     background: url('../pics/register.jpg') no-repeat center center;
     background-size: cover;
+    width:435px;
     color: white;
     display: flex;
     justify-content: center;
@@ -48,13 +60,15 @@ form {
     flex-direction: column;
     margin-bottom: 20px;
 }
-
-label {
-    margin-bottom: 5px;
-    color: #8e44ad; /* Warm, inviting color for labels */
+.input-password
+{
+    display:flex;
 }
-
-input {
+.input-password-detail
+{
+    width:344px;
+}
+input{
     padding: 10px;
     font-size: 16px;
     border: 1px solid #bdc3c7;
@@ -62,6 +76,13 @@ input {
     background-color: #f9eccc; /* Light warm input background */
     color: #2c3e50;
 }
+
+label {
+    margin-bottom: 5px;
+    color: #8e44ad; /* Warm, inviting color for labels */
+}
+
+
 
 input:focus {
     outline: none;
@@ -83,7 +104,7 @@ button:hover {
     background-color: #d35400;
 }
 
-a {
+.link-login {
     margin-top: 10px;
     color: #e67e22;
     text-decoration: none;
@@ -91,6 +112,6 @@ a {
     text-align: center;
 }
 
-a:hover {
+.link-login:hover {
     text-decoration: underline;
 }
