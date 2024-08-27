@@ -8,6 +8,21 @@
     <title>Inkspire</title>
 </head>
 <body>
-    
+    <div class="navbar">
+        <div class="left-wrapper">
+            <img src="pics\Logo Inkspire.png" alt="">
+        </div>
+        <div class="right-wrapper">
+            <div class="login-button">
+                <a class="login-text" href="/login">Login</a>
+            </div>
+            <div class="register-button">
+                <a class="register-text" href="/register">Register</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        
+    </div>
 </body>
 </html>

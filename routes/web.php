@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('splashscreen');
 });
 
 Route::get('/dashboard', function () {
@@ -23,12 +23,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/homepage', function () {
-        return view('homepage');
-    });
+    
+    // User Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Homepage
+    Route::get('/homepage', function () {
+        return view('homepage');
+    });
 });
 
 require __DIR__.'/auth.php';
