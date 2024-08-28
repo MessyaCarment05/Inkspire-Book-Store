@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
                         <a href="/homepage" class="nav-link">HOME</a>
                     </div>
                     <div class="nav-menu">
-                        <a href="/book" class="nav-link">BOOK</a>
+                        <a href="/book" class="nav-link">COLLECTION</a>
                     </div>
                     <div class="nav-menu">
                         <a href="/contactus" class="nav-link">CONTACT US</a>
@@ -52,6 +53,38 @@
             </div>
         </div>
    </div>
+   {{-- Book Collection Start --}}
+        <div class="collection-wrapper">
+            <div class="card-wrapper">
+                <div class="top-card-wrapper">
+                    <div class="image-card-wrapper">
+                        <img class="image-card" src="pics/book1.png" alt="">
+                    </div>
+                </div>
+                <div class="bottom-card-wrapper">
+                    <div class="atas-wrapper">
+                        <div class="title-card-wrapper">
+                            <h2>Linear Algebra</h4>
+                        </div>
+                        <div class="price-card-wrapper">
+                            <h4>Rp. 100000</h4>
+                        </div>
+                        <div class="category-card-wrapper">
+                            <h5>Mathematics</h5>
+                        </div>
+                    </div>
+                    <div class="bawah-wrapper">
+                        <div class="button-detail-wrapper">
+                            <a href="" class="button-detail-link">
+                                <button class="button-detail"href="">See Detail</button>
+                            </a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     {{-- Book Collection End --}}
    <form method="POST" action="{{ route('logout') }}">
     @csrf
     <a href="route('logout')"><button type="submit" class="btn btn-primary btn-block" style="border-style: solid; background: rgba(251, 111, 111, 0.712); color: black; border-color: rgb(179, 179, 179); text-align: left; padding-left: 3.8rem;">Logout<i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5.3rem;"></i></button></a>
@@ -60,52 +93,53 @@
     <div class="col-auto">
         <h3 class="display-6" style="font-family: 'DM Sans'; font-size: 35px; font-weight: 600; margin-top: 1.2rem; color: black">Welcome to BookStore, {{auth()->user()->name}}</h3>
     </div>
-   <footer class="footer">
-    <div class="footer-left">
-        <h3>Inkspire <span>Book Store</span></h3>
-        <p class="footer-links">
-            <a href="/homepage">Home</a>
-            |
-            <a href="/book">Book</a>
-            |
-            <a href="/contactus">Contact Us</a>
-            |
-            <a href="/profile">Profile</a>
-            |
-            <a href="/cart">Cart</a>
-        </p>
-        <p class="footer-company-name">Copyright &#169 2024 <strong>Messya Carment</strong>
-            All right reserved
-        </p>
-    </div>
-    <div class="footer-center">
-        <div>
-            <i class="fa fa-map-marker"></i>
-            <p><span>Tangerang</span>
-             Banten</p>
-        </div>
-         <div>
-            <i class="fa fa-phone"></i>
-            <p>+62 125319115</p>
-        </div>
-        <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="home.html">inskpire@gmail.com</a></p>
-        </div>
+    {{-- Footer Start --}}
+        <footer class="footer">
+                <div class="footer-left">
+                    <h3>Inkspire <span>Book Store</span></h3>
+                    <p class="footer-links">
+                        <a href="/homepage">Home</a>
+                        |
+                        <a href="/book">Collection</a>
+                        |
+                        <a href="/contactus">Contact Us</a>
+                        |
+                        <a href="/profile">Profile</a>
+                        |
+                        <a href="/cart">Cart</a>
+                    </p>
+                    <p class="footer-company-name">Copyright &#169 2024 <strong>Messya Carment</strong>
+                        All right reserved
+                    </p>
+                </div>
+                <div class="footer-center">
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span>Tangerang</span>
+                        Banten</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <p>+62 125319115</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href="home.html">inskpire@gmail.com</a></p>
+                    </div>
 
-    </div>
-   
-    <div class="footer-right">
-        <p class="footer-company-about">
-            <span>About the company</span>
-            <strong>Inkspire Book Store</strong>
-            Inskspire is an online bookstore dedicated to bringing stories to life and making knowledge accessible to everyone. We offer a carefully curated 
-            collection across genres to inspire, enlighten, and spark curiosity in every reader. Whether you're seeking adventure, wisdom, or comfort,
-             Inskspire is here to accompany you on your literary journey.
-        </p> 
-    </div>
-</footer> 
-    
+                </div>
+            
+                <div class="footer-right">
+                    <p class="footer-company-about">
+                        <span>About the company</span>
+                        <strong>Inkspire Book Store</strong>
+                        Inskspire is an online bookstore dedicated to bringing stories to life and making knowledge accessible to everyone. We offer a carefully curated 
+                        collection across genres to inspire, enlighten, and spark curiosity in every reader. Whether you're seeking adventure, wisdom, or comfort,
+                        Inskspire is here to accompany you on your literary journey.
+                    </p> 
+                </div>
+        </footer> 
+     {{-- Footer Stop        --}}
     
     <script src="{!! asset('/js/homepage.js') !!}"></script>
 
