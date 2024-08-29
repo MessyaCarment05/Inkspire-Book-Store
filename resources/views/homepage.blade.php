@@ -55,34 +55,36 @@
    </div>
    {{-- Book Collection Start --}}
         <div class="collection-wrapper">
-            <div class="card-wrapper">
-                <div class="top-card-wrapper">
-                    <div class="image-card-wrapper">
-                        <img class="image-card" src="pics/book1.png" alt="">
+                @foreach ($books->take(5) as $book)
+                    <div class="card-wrapper">
+                        <div class="top-card-wrapper">
+                            <div class="image-card-wrapper">
+                                <img class="image-card" src="{{asset($book->book_image)}}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottom-card-wrapper">
+                            <div class="atas-wrapper">
+                                <div class="title-card-wrapper">
+                                    <h2>{{$book->book_title}}</h4>
+                                </div>
+                                <div class="price-card-wrapper">
+                                    <h4>Rp. {{$book->book_price}}</h4>
+                                </div>
+                                <div class="category-card-wrapper">
+                                    <h5>{{$book->category->category_name}}</h5>
+                                </div>
+                            </div>
+                            <div class="bawah-wrapper">
+                                <div class="button-detail-wrapper">
+                                    <a href="" class="button-detail-link">
+                                        <button class="button-detail"href="">See Detail</button>
+                                    </a>
+                                
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="bottom-card-wrapper">
-                    <div class="atas-wrapper">
-                        <div class="title-card-wrapper">
-                            <h2>Linear Algebra</h4>
-                        </div>
-                        <div class="price-card-wrapper">
-                            <h4>Rp. 100000</h4>
-                        </div>
-                        <div class="category-card-wrapper">
-                            <h5>Mathematics</h5>
-                        </div>
-                    </div>
-                    <div class="bawah-wrapper">
-                        <div class="button-detail-wrapper">
-                            <a href="" class="button-detail-link">
-                                <button class="button-detail"href="">See Detail</button>
-                            </a>
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endforeach
         </div>
      {{-- Book Collection End --}}
    <form method="POST" action="{{ route('logout') }}">

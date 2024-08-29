@@ -83,8 +83,8 @@ header{
 }
 .card-wrapper
 {
-    height:430px;
-    width:250px;
+    height:475px;
+    width:275px;
     border: 2px solid #e0ac1a;
     border-radius: 10px;
     
@@ -138,7 +138,10 @@ header{
     width:120px;
     border-radius: 5px;
 }
-
+.collection-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
 .footer
 {
     background-color: #2d2a30;
