@@ -14,4 +14,8 @@ class BookController extends Controller
         $books=Book::all();
         return view('homepage', compact('books'));
     }
+    public function showDetailBook($id){
+        $bookdetail=Book::findOrFail($id);
+        return view('seebookdetail', compact('bookdetail'));
+    }
 }
