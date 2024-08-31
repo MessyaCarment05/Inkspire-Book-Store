@@ -179,15 +179,7 @@ class BookSeeder extends Seeder
             'book_description' => 'Principles of entrepreneurship and innovative thinking.',
         ]);
 
-        Book::create([
-            'category_id' => $accounting,
-            'book_image' => 'pics/book1.png',
-            'book_title' => 'Advanced Financial Accounting',
-            'book_author' => 'Author P',
-            'book_price' => 180000,
-            'book_quantity' => 5,
-            'book_description' => 'Advanced topics in financial accounting.',
-        ]);
+       
         
         
     }

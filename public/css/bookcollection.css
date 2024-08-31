@@ -3,7 +3,8 @@ body{
     margin:0;
     padding: 0;
 }
-/* Nanbar */
+
+/* Navbar */
 .navbar{
     height: 100px;
     display: flex;
@@ -41,40 +42,6 @@ header{
     color: black;
 }
 
-.hero-wrapper{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background: url('../pics/hero.jpg') no-repeat center center;
-    background-size: cover;
-    height:550px;
-    width:100%;
-}
-.hero-content-wrapper{
-    color:white;
-    font-size:30px;
-}
-.hero-bottom-wrapper
-{
-    display: flex;
-    justify-content: center;
-}
-.hero-button{
-    height:50px;
-    width:200px;
-    border-radius: 15px;
-    border:none;
-    background-color:  #e67e22;
-   
-    font-weight: bold;
-    color:white;
-    font-size:20px;
-    transition: 0.2s ease-in;
-   
-}
-.hero-button:hover{
-    background-color:  #d35400;
-}
 .collection-wrapper{
     height:500px;
     width:100%;
@@ -84,25 +51,22 @@ header{
     padding-right:10px;
 }
 
+
 .collection-all-wrapper{
-    height:65vh;
-    width:100vw;
-}
-.collection-all2-wrapper{
-    height:65vh;
+    height:165vh;
     width:100vw;
     margin-top:50px;
 }
 .our-collection-wrapper
 {
-    display: flex;
-    justify-content: space-between;
+   
     margin-bottom:10px;
 }
 
 .our-collection
 {
     display:flex;
+    justify-content: center;
     padding-top:30px;
     align-items: center;
     height:100px;
@@ -126,28 +90,10 @@ header{
     align-items: center;
   
 }
-.see-more-wrapper
-{
-    margin-bottom:10px;
-}
 
-.see-more
-{
-    display:flex;
-    justify-content: flex-end;
-    padding-top:30px;
-    padding-right:25px;
-    align-items: center;
-    height:100px;
 
-}
-.more-book
-{
-    color:black;
-    font-size:75px;
-}
-
-/* Footer */
+/* 
+Footer */
 .footer
 {
     background-color: #2d2a30;

@@ -27,17 +27,17 @@
                         <a href="/homepage" class="nav-link">HOME</a>
                     </div>
                     <div class="nav-menu">
-                        <a href="/book" class="nav-link">COLLECTION</a>
+                        <a href="/bookcollection" class="nav-link">COLLECTION</a>
                     </div>
                     <div class="nav-menu">
                         <a href="/contactus" class="nav-link">CONTACT US</a>
                     </div>
                     <div class="nav-menu">
-                        <a href="/contactus" class="nav-link">PROFILE</a>
+                        <a href="/profile" class="nav-link">PROFILE</a>
                     </div>
                     <div class="nav-menu">
                         {{-- <a href="/cart" class="nav-link">CART</a> --}}
-                        <a href="" style="text-decoration: none;" class="nav-link">
+                        <a href="/cart" style="text-decoration: none;" class="nav-link">
                             <i class="fas fa-shopping-cart" style="color: white; transition:0.5s ease;" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"></i>
                         </a>
                         
@@ -67,6 +67,12 @@
                     <h3 class="left-our">BEST</h3>
                      <h3 class="right-our">SELLER</h3>
                 </div>
+                <div class="see-more-wrapper">
+                    <div class="see-more">
+                       <a href="/bookcollection" style="text-decoration: none;"> <h3 class="more-book">></h3></a>
+                    </div>
+                </div>
+               
             </div>
             <div class="collection-wrapper">
                 <div class="collection-wrapper">
@@ -94,6 +100,11 @@
             <div class="our-collection">
                 <h3 class="left-our">BOOK</h3>
                  <h3 class="right-our">COLLECTION</h3>
+            </div>
+            <div class="see-more-wrapper">
+                <div class="see-more">
+                    <a href="/bookcollection" style="text-decoration: none;"> <h3 class="more-book">></h3></a>
+                </div>
             </div>
            
         </div>

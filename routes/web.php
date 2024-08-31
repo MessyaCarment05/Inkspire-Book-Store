@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\BookController;
-
+use App\Http\Controllers\BookCollectionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +32,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // Homepage Routes
     Route::get('/homepage', [HomepageController::class, 'indexHomepage']);
-    // Book Routes
+    // Book Detail Routes
     Route::get('/books/{id}', [BookController::class, 'showDetailBook'])->name('books.showDetail');
+    // Book Collection Routes
+    Route::get('/bookcollection', [BookCollectionController::class,'indexBookCollection']);
+    // Add to Cart Routes
+    Route::post('/add-cart/{id}', [BookController::class, 'addCart'])->name('add.cart');
+    // Show Cart Routes
+    Route::get('/cart', [BookController::class, 'showCart']);
     
 });
 
