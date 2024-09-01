@@ -84,7 +84,14 @@
                                 <p class="clientposter" style="margin-top: -0.5rem; font-size: 15px; margin-left: -0.5rem;">{{$book->book_author}}</p>
                                 <p class="card-text" style="margin-left: -0.5rem;">Rp. {{$book->book_price}},-</p>
                                 <span class="badge badge-pill badge-primary" style="background-color: #e67e22; border-radius: 50px; font-size: 13px; margin-left: -0.5rem;">{{$book->category->category_name}}</span>
-                                <a href=""style="text-decoration: none;"><i class="fas fa-shopping-cart" style="font-size: 20px; float: right; padding-top: 0.15rem; color:black;"></i></a>        
+                                <form id="add-to-cart-form-{{ $book->id }}" action="{{ route('add.cart', ['id' => $book->id]) }}" method="POST" style="display:none;">
+                                    @csrf
+                                </form>
+                                
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('add-to-cart-form-{{ $book->id }}').submit();" style="color:black;">
+                                    <i class="fas fa-shopping-cart" style="font-size: 20px; float: right; padding-top: 0.15rem;"></i>
+                                </a>
+                                
                             </div>
                         </div>
                     @endforeach
@@ -117,7 +124,15 @@
                         <p class="clientposter" style="margin-top: -0.5rem; font-size: 15px; margin-left: -0.5rem;">{{$book->book_author}}</p>
                         <p class="card-text" style="margin-left: -0.5rem;">Rp. {{$book->book_price}},-</p>
                         <span class="badge badge-pill badge-primary" style="background-color: #e67e22; border-radius: 50px; font-size: 13px; margin-left: -0.5rem;">{{$book->category->category_name}}</span>
-                        <a href=""style="text-decoration: none;"><i class="fas fa-shopping-cart" style="font-size: 20px; float: right; padding-top: 0.15rem; color:black;"></i></a>        
+                        <form id="add-to-cart-form-{{ $book->id }}" action="{{ route('add.cart', ['id' => $book->id]) }}" method="POST" style="display:none;">
+                            @csrf
+                        </form>
+                        
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('add-to-cart-form-{{ $book->id }}').submit();" style="color:black;">
+                            <i class="fas fa-shopping-cart" style="font-size: 20px; float: right; padding-top: 0.15rem;"></i>
+                        </a>
+                        
+                         
                         </div>
                     </div>
                 @endforeach

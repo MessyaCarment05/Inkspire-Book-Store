@@ -107,24 +107,17 @@
                                 <h3 style="font-size: 1.8rem; font-family: 'DM Sans'">{{$bookdetail->book_quantity}}</h3>
                             </div>
                             <div class="row">
-                                <div class="col-12" style="padding: 8rem;">
+                                <div class="col-12" style="padding-left: 30px; padding-bottom:30px; width :800px;">
                                     <form action="{{ route('add.cart', $bookdetail->id) }}" method="POST">
                                         @csrf
                                         
                                         <button class="btn btn-primary btn-lg btn-block" style="background-color:  #e67e22; padding:1em; font-family: 'DM Sans'; font-weight: 500; font-size:1.25rem; color: white; text-decoration: none;" type="submit">
-                                            Apply
+                                            Add to cart
                                         </button>
                                      </form>
                                 </div>
                             </div> 
-                            {{-- <form action="{{route('add.cart', $bookdetail->id)}}" method="POST">
-                                @csrf
-                                <div class="col-12" style="margin-bottom:20px;" >
-                                    <a href="" class="btn btn-primary btn-lg btn-block" style="background-color: #e67e22; padding:1em; font-family: 'DM Sans'; font-weight: 500; font-size:1.25rem; color: white; text-decoration: none;">
-                                        Add to cart
-                                    </a>
-                                </div>
-                            </form> --}}
+                        
                         </div>
                     </div>
                 </div>
@@ -133,12 +126,7 @@
     </div>
 </div>
 
-                {{-- <img src="{{asset($bookdetail->book_image)}}" alt="">
-                <h3>{{$bookdetail->book_title}}</h3>
-                <h3>{{$bookdetail->book_author}}</h3>
-                <h3>{{$bookdetail->book_price}}</h3>
-                <h3>{{$bookdetail->book_quantity}}</h3>
-                <h3>{{$bookdetail->book_description}}</h3>
+            
                 <h3>{{$bookdetail->category->category_name}}</h3> --}}
      {{-- Footer Start --}}
      <footer class="footer">

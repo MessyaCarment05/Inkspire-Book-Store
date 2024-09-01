@@ -41,7 +41,54 @@ header{
 .nav-link:hover{
     color: black;
 }
+.collection-wrapper{
+    height:500px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    padding-left:10px;
+    padding-right:10px;
+}
 
+
+.collection-all-wrapper{
+    height:165vh;
+    width:100vw;
+    margin-top:50px;
+}
+.our-collection-wrapper
+{
+   
+    margin-bottom:10px;
+}
+
+.our-collection
+{
+    display:flex;
+    justify-content: center;
+    padding-top:30px;
+    align-items: center;
+    height:100px;
+    padding-left:35px;
+
+}
+.left-our
+{
+    color:#ff9900;
+    padding-right:10px;
+    font-size:75px;
+}
+.right-our
+{
+    color: #d35400;
+    font-size:75px;
+}
+.collection-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+}
 /* 
 Footer */
 .footer
