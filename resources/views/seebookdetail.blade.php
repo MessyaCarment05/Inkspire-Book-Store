@@ -127,7 +127,7 @@
 </div>
 
             
-                <h3>{{$bookdetail->category->category_name}}</h3> --}}
+               
      {{-- Footer Start --}}
      <footer class="footer">
         <div class="footer-left">
