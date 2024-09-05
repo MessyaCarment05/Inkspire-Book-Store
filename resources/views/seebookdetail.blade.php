@@ -102,22 +102,31 @@
                                 <h2 style="color: #e0ac1a; font-size: 2rem; font-family: 'DM Sans';"><b> Book Price</b></h2>
                                 <h3 style="font-size: 1.8rem; font-family: 'DM Sans'">Rp. {{$bookdetail->book_price}},-</h3>
                             </div>
+                            @if($bookdetail->book_quantity>0)
                             <div class="col-12 pb-3">
                                 <h2 style="color: #e0ac1a; font-size: 2rem; font-family: 'DM Sans';"><b>Quantity</b></h2>
                                 <h3 style="font-size: 1.8rem; font-family: 'DM Sans'">{{$bookdetail->book_quantity}}</h3>
                             </div>
-                            <div class="row">
-                                <div class="col-12" style="padding-left: 30px; padding-bottom:30px; width :800px;">
-                                    <form action="{{ route('add.cart', $bookdetail->id) }}" method="POST">
-                                        @csrf
-                                        
-                                        <button class="btn btn-primary btn-lg btn-block" style="background-color:  #e67e22; padding:1em; font-family: 'DM Sans'; font-weight: 500; font-size:1.25rem; color: white; text-decoration: none;" type="submit">
-                                            Add to cart
-                                        </button>
-                                     </form>
+                            @else 
+                                <div class="col-12 pb-3">
+                                    <h2 style="color: #e0ac1a; font-size: 2rem; font-family: 'DM Sans';"><b>Quantity</b></h2>
+                                    <h3 style="font-size: 1.8rem; font-family: 'DM Sans'">0 (Out of stock <i class="fas fa-times-circle" style="color: red; z-index:1;")></i>
+                                    </button>)</h3>
                                 </div>
-                            </div> 
-                        
+                            @endif
+                           @if($bookdetail->book_quantity>0)
+                                <div class="row">
+                                        <div class="col-12" style="padding-left: 30px; padding-bottom:30px; width :800px;">
+                                            <form action="{{ route('add.cart', $bookdetail->id) }}" method="POST">
+                                                @csrf
+                                                
+                                                <button class="btn btn-primary btn-lg btn-block" style="background-color:  #e67e22; padding:1em; font-family: 'DM Sans'; font-weight: 500; font-size:1.25rem; color: white; text-decoration: none;" type="submit">
+                                                    Add to cart
+                                                </button>
+                                            </form>
+                                        </div>
+                                </div> 
+                            @endif
                         </div>
                     </div>
                 </div>

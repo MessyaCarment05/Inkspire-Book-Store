@@ -47,58 +47,43 @@
            {{-- Navbar Stop --}}
    </header>
    {{-- Content --}}
-    {{-- Book Collection Start --}}
-    {{-- <div class="collection-all-wrapper">
-        <div class="our-collection-wrapper">
-            <div class="our-collection">
-                <h3 class="left-our">{{auth()->user()->name}}</h3>
-                 <h3 class="right-our">Cart</h3>
-            </div>
-           
-           
-        </div>
-        <div class="collection-wrapper">
-                @foreach ($cart as $carts)
-                    <div class="card" style="width: 23rem; margin-top: 1rem; margin-left: 1rem; border-radius: 10px; cursor: pointer; border-color: none; height:fit-content; z-index:1;">
-                        <img class="card-img-top" src="{{asset($carts->cart_book_image)}}" alt="Card image cap" style="width: 65%; align-self: center; margin-top: 0.5rem; border-radius: 10px; border-style: solid; border-color:grey;">
-                        <div class="card-body" style="font-family: 'DM Sans';">
-                            <a href="" style="text-decoration: none;"><h5 class="card-title" style="font-weight: 600; margin-left: -0.5rem; color: black;">{{$carts->cart_book_title}}</h5></a>
-                            <p class="clientposter" style="margin-top: -0.5rem; font-size: 15px; margin-left: -0.5rem;">{{$carts->cart_book_author}}</p>
-                            <p class="card-text" style="margin-left: -0.5rem;">Rp. {{$carts->cart_book_price}},-</p>
-                            <span class="badge badge-pill badge-primary" style="background-color: #e67e22; border-radius: 50px; font-size: 13px; margin-left: -0.5rem;">{{$carts->category->category_name}}</span>
-                            <p class="card-text" style="margin-left: -0.5rem;">Quantity : {{$carts->cart_book_quantity}}</p>
-                        </div>
-                @endforeach
-                 </div>
-         </div>
-    </div> --}}
+   
     <div class="collection-all-wrapper">
         <div class="our-collection-wrapper">
             <div class="our-collection">
                 <h3 class="left-our">{{auth()->user()->name}}</h3>
-                 <h3 class="right-our">Cart</h3>
+                <h3 class="right-our">Cart</h3>
             </div>
-            
-           
         </div>
-        <div class="collection-wrapper">
-                @foreach ($cart as $carts)
-                    <div class="card" style="width: 23rem; margin-top: 1rem; margin-left: 1rem; border-radius: 10px; cursor: pointer; border-color: none; height:fit-content; z-index:1;">
-                        <img class="card-img-top" src="{{asset($carts->cart_book_image)}}" alt="Card image cap" style="width: 65%; align-self: center; margin-top: 0.5rem; border-radius: 10px; border-style: solid; border-color:grey;">
-                        <div class="card-body" style="font-family: 'DM Sans';">
-                        <a href="" style="text-decoration: none;"><h5 class="card-title" style="font-weight: 600; margin-left: -0.5rem; color: black;">{{$carts->cart_book_title}}</h5></a>
+    
+        <div class="collection-wrapper" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            @foreach ($cart as $carts)
+                <div class="card" style="width: 23rem; margin-top: 1rem; border-radius: 10px; cursor: pointer; border-color: none; height: fit-content; z-index: 1;">
+                    <img class="card-img-top" src="{{asset($carts->cart_book_image)}}" alt="Card image cap" style="width: 65%; align-self: center; margin-top: 0.5rem; border-radius: 10px; border-style: solid; border-color: grey;">
+                    <div class="card-body" style="font-family: 'DM Sans';">
+                        <a href="#" style="text-decoration: none;">
+                            <h5 class="card-title" style="font-weight: 600; margin-left: -0.5rem; color: black;">{{$carts->cart_book_title}}</h5>
+                        </a>
                         <p class="clientposter" style="margin-top: -0.5rem; font-size: 15px; margin-left: -0.5rem;">{{$carts->cart_book_author}}</p>
                         <p class="card-text" style="margin-left: -0.5rem;">Rp. {{$carts->cart_book_price}},-</p>
                         <span class="badge badge-pill badge-primary" style="background-color: #e67e22; border-radius: 50px; font-size: 13px; margin-left: -0.5rem;">{{$carts->category->category_name}}</span>
-                        <p class="card-text" style="margin-left: -0.5rem;">Quantity : {{$carts->cart_book_quantity}}</p>
+                        <form id="add-to-cart-form-{{ $carts->id }}" action="{{ route('add.cart', ['id' => $carts->id]) }}" method="POST" style="display:none;">
+                            @csrf
+                        </form>
                         
-                        </div>
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('add-to-cart-form-{{ $carts->id }}').submit();" style="color:black;">
+                            
+
+                            <i class="fas fa-cash-register" style="font-size: 20px; float: right; padding-top: 0.15rem;"></i>
+                        </a>
+                        
+                        <p class="card-text" style="margin-left: -0.5rem;">Quantity: {{$carts->cart_book_quantity}}</p>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
         </div>
-    
-        
     </div>
+    
  {{-- Book Collection End --}}
    {{-- Footer Start --}}
    <footer class="footer">
