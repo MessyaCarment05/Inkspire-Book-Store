@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cart_user_id');
             $table->unsignedBigInteger('cart_category_id');
+            $table->unsignedBigInteger('cart_book_id');
             $table->foreign('cart_category_id')->references('id')->on('categories');
             $table->string('cart_book_image');
             $table->string('cart_book_title');

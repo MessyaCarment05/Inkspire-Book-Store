@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\BookCollectionController;
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/add-cart/{id}', [BookController::class, 'addCart'])->name('add.cart');
     // Show Cart Routes
     Route::get('/cart', [BookController::class, 'showCart']);
-    
+    // Delete From Cart
+    Route::delete('/cart/{id}/delete', [BookController::class, 'deleteFromCart'])->name('cart.delete');
+    // Checkout Routes
+    Route::post('/checkout/{id}', [CheckoutController::class, 'addCheckout'])->name('checkout.book');
+    // Show Checkout Routes
+    Route::get('/showCheckout', [CheckoutController::class, 'showCheckout'])->name('showCheckout');
+    // Delete From Checkout
+    Route::delete('/checkout/remove/{id}', [CheckoutController::class, 'removeFromCheckout'])->name('checkout.remove');
+
 });
 
 require __DIR__.'/auth.php';

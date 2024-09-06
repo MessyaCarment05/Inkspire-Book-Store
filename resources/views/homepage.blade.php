@@ -53,8 +53,8 @@
                     <h2>Where stories come to life and knowledge finds its home.</h2>
                 </div>
                 <div class="hero-bottom-wrapper">
-                    <a href="/homepage">
-                        <button href="/" class="hero-button">See Collection</button>
+                    <a href="/bookcollection">
+                        <button href="" class="hero-button">See Collection</button>
                     </a>
                 </div>
             </div>

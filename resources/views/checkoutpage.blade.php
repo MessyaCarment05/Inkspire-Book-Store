@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cart</title>
-    <link rel="stylesheet" href="{{asset('css/cart.css')}}">
+    <title>Check Out</title>
+    <link rel="stylesheet" href="{{asset('css/checkout.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -50,11 +50,11 @@
    <div class="collection-all-wrapper">
     <div class="our-collection-wrapper">
         <div class="our-collection">
-            <h3 class="left-our">CART</h3>
-            <h3 class="right-our">LIST</h3>
+            <h3 class="left-our">REVIEW</h3>
+            <h3 class="right-our">ITEMS</h3>
         </div>
     </div>
-    @if($cart->isEmpty())
+    @if($checkout->isEmpty())
         <div style="width: 100%; padding: 20px; display:flex; justify-content:center; font-size: 50px; font-weight: bold; color: #dc3545;">
             Your cart is empty!
         </div>
@@ -68,54 +68,46 @@
                         <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Category</th>
                         <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Price</th>
                         <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Quantity</th>
+                        <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Subtotal Price</th>
                         <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($cart as $carts)
+                    @php
+                       $totalprice=0;
+                    @endphp
+                    @foreach ($checkout as $checkouts)
                     <tr>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->cart_book_title}}</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->cart_book_author}}</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->category->category_name}}</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$carts->cart_book_price}},-</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->cart_book_quantity}}</td>
+                        <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_title}}</td>
+                        <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_author}}</td>
+                        <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->category->category_name}}</td>
+                        <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$checkouts->checkout_book_price}},-</td>
+                        <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_quantity}}</td>
+                        <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$checkouts->checkout_book_price * $checkouts->checkout_book_quantity}},-</td>
+                       
+                        @php
+                            $totalprice=$totalprice+($checkouts->checkout_book_price * $checkouts->checkout_book_quantity);
+                        @endphp
                         <td style="padding: 15px; border: 1px solid #ddd;">
                             <div style="display: flex; gap: 5px;">
-                                <form action="{{ route('checkout.book', $carts->id) }}" method="POST">
-                                    @csrf
-                                  
-                                    <button type="submit" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100px;">Checkout</button>
-                                </form>
-                                <form action="{{ route('cart.delete', $carts->id) }}" method="POST">
+                                <form action="{{ route('checkout.remove', $checkouts->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button style="padding: 10px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100px;">Delete</button>
                                 </form>
                             </div>
+                            
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
             <div style="margin-right: 105px; width: 100%; display: flex; justify-content: flex-end; padding-top: 20px;">
-                <form action=" method="POST">
-                    @csrf
-                    <button style="padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-                        Checkout All
-                    </button>
-                </form>
+                <h3>Total : Rp. {{$totalprice}},- </h3>
             </div>
             
         </div>
     @endif
-    <div style="padding-right: 100px; width: 100%; display: flex; justify-content: flex-end; padding-top: 20px;">
-        <a href="/showCheckout">
-         
-            <button style="padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-                Go to checkout
-            </button>
-        </a>
-    </div>
 </div>
 
     

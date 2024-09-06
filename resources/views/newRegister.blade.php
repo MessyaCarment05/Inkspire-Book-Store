@@ -37,8 +37,12 @@
                     </div>         
                     <div class="input-container">
                         <label for="phone_number">Phone Number</label>
-                        <input type="text" placeholder="0812345678" phone_number" name="phone_number" required>
+                        <input type="text" placeholder="0812345678" id="phone_number" name="phone_number" required>
                     </div>
+                    <div class="input-container">
+                        <label for="email">Address</label>
+                        <input type="text" placeholder ="Sudirman Street" id="address"  name="address" required>
+                    </div>   
                     <div class="input-container">
                         <label for="password">Password</label>
                         <div class="input-password">
