@@ -48,7 +48,15 @@ Route::middleware('auth')->group(function () {
     // Show Checkout Routes
     Route::get('/showCheckout', [CheckoutController::class, 'showCheckout'])->name('showCheckout');
     // Delete From Checkout
-    Route::delete('/checkout/remove/{id}', [CheckoutController::class, 'removeFromCheckout'])->name('checkout.remove');
+    Route::post('/checkout/remove/{id}', [CheckoutController::class, 'removeFromCheckout'])->name('checkout.remove');
+    /// Receipt
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get('/receipt', [CheckoutController::class, 'showReceipt'])->name('receipt.show');
+
+  
+  
+
+
 
 });
 

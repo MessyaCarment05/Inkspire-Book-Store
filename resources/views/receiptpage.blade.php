@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cart</title>
-    <link rel="stylesheet" href="{{asset('css/cart.css')}}">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="{{asset('css/receipt.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -47,77 +47,64 @@
            {{-- Navbar Stop --}}
    </header>
    {{-- Content --}}
-   <div class="collection-all-wrapper">
-    <div class="our-collection-wrapper">
-        <div class="our-collection">
-            <h3 class="left-our">CART</h3>
-            <h3 class="right-our">LIST</h3>
-        </div>
-    </div>
-    @if($cart->isEmpty())
-        <div style="width: 100%; padding: 20px; display:flex; justify-content:center; font-size: 50px; font-weight: bold; color: #dc3545;">
-            Your cart is empty!
-        </div>
-        <div style="width: 100%; padding: 20px; display:flex; justify-content:center; font-size: 50px; font-weight: bold; color: #dc3545;">
-            <a href="/showCheckout">
-                 
-                <button style="padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-                    View Order Summary
-                </button>
-            </a>
-        </div>
-    @else
-        <div class="collection-wrapper" style="display: flex; flex-wrap: wrap; gap: 1rem;">
-            <table style="width:90%; border-collapse: collapse; margin-bottom: 20px; border: 1px solid #ddd;">
-                <thead>
-                    <tr>
-                        <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Title</th>
-                        <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Author</th>
-                        <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Category</th>
-                        <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Price</th>
-                        <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Quantity</th>
-                        <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cart as $carts)
-                    <tr>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->cart_book_title}}</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->cart_book_author}}</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->category->category_name}}</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$carts->cart_book_price}},-</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">{{$carts->cart_book_quantity}}</td>
-                        <td style="padding: 15px; border: 1px solid #ddd;">
-                            <div style="display: flex; gap: 5px;">
-                                <form action="{{ route('checkout.book', $carts->id) }}" method="POST">
-                                    @csrf
-                                  
-                                    <button type="submit" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100px;">Checkout</button>
-                                </form>
-                                <form action="{{ route('cart.delete', $carts->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button style="padding: 10px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100px;">Remove</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div style="padding-right: 90px; width: 100%; display: flex; justify-content: flex-end; padding-top: 20px;">
-                <a href="/showCheckout">
-                 
-                    <button style="padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-                        View Order Summary
-                    </button>
-                </a>
+   {{-- Book Collection Start --}}
+    <div class="collection-all-wrapper" style="padding: 20px; font-family: Arial, sans-serif;">
+        <div class="our-collection-wrapper" style="margin-bottom: 20px;">
+            <div class="our-collection">
+                <h3 class="left-our" style="display: inline-block; margin-right: 20px; color: #ff9900;">ORDER</h3>
+                <h3 class="right-our" style="display: inline-block;">SUMMARY</h3>
             </div>
-            
         </div>
-    @endif
-    
-</div>
+
+        @if($checkoutItems->isEmpty())
+            <div style="width: 100%; padding: 20px; display: flex; justify-content: center; font-size: 50px; font-weight: bold; color: #dc3545;">
+                No Order
+            </div>
+        @else
+            <div class="collection-wrapper" style="display: flex; flex-direction: column; gap: 1rem;">
+
+                <!-- Checkout Items Table -->
+                <div style="width: 100%; overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; border: 1px solid #ddd;">
+                        <thead>
+                            <tr>
+                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Title</th>
+                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Author</th>
+                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Category</th>
+                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Price</th>
+                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Quantity</th>
+                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Subtotal Price</th>
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                            $totalprice = 0;
+                            @endphp
+                            @foreach ($checkoutItems as $checkouts)
+                            <tr>
+                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_title}}</td>
+                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_author}}</td>
+                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->category->category_name}}</td>
+                                <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$checkouts->checkout_book_price}},-</td>
+                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_quantity}}</td>
+                                <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$checkouts->checkout_book_price * $checkouts->checkout_book_quantity}},-</td>
+                            
+                                @php
+                                    $totalprice += ($checkouts->checkout_book_price * $checkouts->checkout_book_quantity);
+                                @endphp
+                               
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        @endif
+    </div>
+
+
+
 
     
  {{-- Book Collection End --}}
