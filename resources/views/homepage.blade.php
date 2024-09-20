@@ -49,6 +49,9 @@
    <div class="content-wrapper">
         <div class="hero-wrapper">
             <div class="hero-content-wrapper">
+                <div class="hero-top-wrapper" style="display: flex; justify-content:center;">
+                    <h2>Welcome to Inkspire, {{auth()->user()->name}}</h2>
+                </div>
                 <div class="hero-top-wrapper">
                     <h2>Where stories come to life and knowledge finds its home.</h2>
                 </div>
@@ -138,15 +141,13 @@
                 @endforeach
         </div>
     </div>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <a href="route('logout')"><button type="submit" class="btn btn-primary btn-block" style="border-style: solid; background: rgba(251, 111, 111, 0.712); color: black; border-color: rgb(179, 179, 179); text-align: left; padding-left: 3.8rem;">Logout<i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5.3rem;"></i></button></a>
+        
+        </form>
  {{-- Book Collection End --}}
-   <form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <a href="route('logout')"><button type="submit" class="btn btn-primary btn-block" style="border-style: solid; background: rgba(251, 111, 111, 0.712); color: black; border-color: rgb(179, 179, 179); text-align: left; padding-left: 3.8rem;">Logout<i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5.3rem;"></i></button></a>
-    
-    </form>
-    <div class="col-auto">
-        <h3 class="display-6" style="font-family: 'DM Sans'; font-size: 35px; font-weight: 600; margin-top: 1.2rem; color: black">Welcome to BookStore, {{auth()->user()->name}}</h3>
-    </div>
+   
     {{-- Footer Start --}}
         <footer class="footer">
                 <div class="footer-left">
@@ -154,7 +155,7 @@
                     <p class="footer-links">
                         <a href="/homepage">Home</a>
                         |
-                        <a href="/book">Collection</a>
+                        <a href="/bookcollection">Collection</a>
                         |
                         <a href="/contactus">Contact Us</a>
                         |

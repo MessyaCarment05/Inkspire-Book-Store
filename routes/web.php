@@ -6,6 +6,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\BookCollectionController;
+use App\Http\Controllers\ReceiptController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,9 +50,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/showCheckout', [CheckoutController::class, 'showCheckout'])->name('showCheckout');
     // Delete From Checkout
     Route::post('/checkout/remove/{id}', [CheckoutController::class, 'removeFromCheckout'])->name('checkout.remove');
-    /// Receipt
-    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
-    Route::get('/receipt', [CheckoutController::class, 'showReceipt'])->name('receipt.show');
+    // Store Checkout Item
+    Route::post('/store-receipt', [ReceiptController::class, 'store'])->name('storeReceipt');
+    // Show Receipt
+    Route::get('/receipt/{transaction_id}', [ReceiptController::class, 'showReceipt'])->name('showReceipt');
+
+
 
   
   

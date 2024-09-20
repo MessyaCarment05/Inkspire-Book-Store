@@ -4,23 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Receipt</title>
-    <link rel="stylesheet" href="{{asset('css/receipt.css')}}">
+    <title>Transaction Receipt</title>
+    <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css”>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+       
+        .collection-all-wrapper {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .transaction-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .transaction-info p {
+            margin: 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .summary h3 {
+            margin-bottom: 10px;
+        }
+        .summary p {
+            font-size: 24px;
+            color: #d35400;
+        }
+        
+    </style>
 </head>
 <body>
     <header>
         {{-- Navbar Start --}}
            <nav class="navbar">
                <div class="nav-left-wrapper">
-                   <a href="/homepage"><img src="pics\Logo Inkspire.png" alt="" class="nav-logo"></a>
+                   <a href="/homepage"><img src="{{asset('pics\Logo Inkspire.png')}}" alt="" class="nav-logo"></a>
                </div>
                <div class="nav-right-wrapper">
                    <div class="nav-menu">
@@ -46,116 +94,116 @@
            </nav>
            {{-- Navbar Stop --}}
    </header>
-   {{-- Content --}}
-   {{-- Book Collection Start --}}
-    <div class="collection-all-wrapper" style="padding: 20px; font-family: Arial, sans-serif;">
-        <div class="our-collection-wrapper" style="margin-bottom: 20px;">
-            <div class="our-collection">
-                <h3 class="left-our" style="display: inline-block; margin-right: 20px; color: #ff9900;">ORDER</h3>
-                <h3 class="right-our" style="display: inline-block;">SUMMARY</h3>
-            </div>
+
+    <div class="collection-all-wrapper">
+        <h3 style="color: #ff9900; margin-bottom: 20px;">TRANSACTION RECEIPT</h3>
+
+        <div class="transaction-info">
+            <p><strong>Transaction ID:</strong> {{ $transaction_id }}</p>
+            <p><strong>Date:</strong> {{ now()->toFormattedDateString() }}</p>
+            <p><strong>Customer Name:</strong> {{ auth()->user()->name }}</p>
+            <p><strong>Customer Address:</strong> {{ auth()->user()->address }}</p>
+            <p><strong>Customer Phone Number:</strong> {{ auth()->user()->phone_number }}</p>
+            <p><strong>Payment Method:</strong> {{ $payment_method }}</p>
         </div>
 
-        @if($checkoutItems->isEmpty())
-            <div style="width: 100%; padding: 20px; display: flex; justify-content: center; font-size: 50px; font-weight: bold; color: #dc3545;">
-                No Order
+        <div style="width: 100%; overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Book Author</th>
+                        <th>Book Category</th>
+                        <th>Book Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php
+                    $totalprice = 0;
+                    $totalquantity = 0;
+                    @endphp
+                    @foreach ($receipts as $receipt)
+                    <tr>
+                        <td>{{ $receipt->receipt_book_title }}</td>
+                        <td>{{ $receipt->receipt_book_author }}</td>
+                        <td>{{ $receipt->category->category_name }}</td>
+                        <td>Rp. {{ $receipt->receipt_book_price }},-</td>
+                        <td>{{ $receipt->receipt_book_quantity }}</td>
+                        <td>Rp. {{ $receipt->receipt_book_price * $receipt->receipt_book_quantity }},-</td>
+                        @php
+                            $totalprice += ($receipt->receipt_book_price * $receipt->receipt_book_quantity);
+                            $totalquantity += $receipt->receipt_book_quantity;
+                        @endphp
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="summary">
+            <h3 style="color: #333;">Summary</h3>
+            <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                <h4 style="margin: 0;">Total Quantity:</h4>
+                <p style="font-size: 24px; color: #d35400; margin: 0;">{{ $totalquantity }}</p>
             </div>
-        @else
-            <div class="collection-wrapper" style="display: flex; flex-direction: column; gap: 1rem;">
-
-                <!-- Checkout Items Table -->
-                <div style="width: 100%; overflow-x: auto;">
-                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; border: 1px solid #ddd;">
-                        <thead>
-                            <tr>
-                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Title</th>
-                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Author</th>
-                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Category</th>
-                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Book Price</th>
-                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Quantity</th>
-                                <th style="padding: 15px; text-align: left; background-color: #333; color: white;">Subtotal Price</th>
-                              
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                            $totalprice = 0;
-                            @endphp
-                            @foreach ($checkoutItems as $checkouts)
-                            <tr>
-                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_title}}</td>
-                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_author}}</td>
-                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->category->category_name}}</td>
-                                <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$checkouts->checkout_book_price}},-</td>
-                                <td style="padding: 15px; border: 1px solid #ddd;">{{$checkouts->checkout_book_quantity}}</td>
-                                <td style="padding: 15px; border: 1px solid #ddd;">Rp. {{$checkouts->checkout_book_price * $checkouts->checkout_book_quantity}},-</td>
-                            
-                                @php
-                                    $totalprice += ($checkouts->checkout_book_price * $checkouts->checkout_book_quantity);
-                                @endphp
-                               
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                <h4 style="margin: 0;">Total Price:</h4>
+                <p style="font-size: 24px; color: #d35400; margin: 0;">Rp. {{ $totalprice }},-</p>
             </div>
-        @endif
+            <div style="border-top: 2px solid #ddd; margin-top: 20px; padding-top: 10px;">
+                <h4 style="margin: 0; color: #555;">Thank you for your purchase!</h4>
+            </div>
+        </div>
+        
+        
     </div>
 
+    {{-- Footer Start --}}
+    <footer class="footer">
+        <div class="footer-left">
+            <h3>Inkspire <span>Book Store</span></h3>
+            <p class="footer-links">
+                <a href="/homepage">Home</a>
+                |
+                <a href="/bookcollection">Collection</a>
+                |
+                <a href="/contactus">Contact Us</a>
+                |
+                <a href="/profile">Profile</a>
+            </p>
+            <p class="footer-company-name">Copyright &#169 2024 <strong>Messya Carment</strong>
+                All right reserved
+            </p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Tangerang</span>
+                Banten</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+62 125319115</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="">inskpire@gmail.com</a></p>
+            </div>
 
-
-
+        </div>
     
- {{-- Book Collection End --}}
-
-
-
-
-   {{-- Footer Start --}}
-   <footer class="footer">
-    <div class="footer-left">
-        <h3>Inkspire <span>Book Store</span></h3>
-        <p class="footer-links">
-            <a href="/homepage">Home</a>
-            |
-            <a href="/book">Collection</a>
-            |
-            <a href="/contactus">Contact Us</a>
-            |
-            <a href="/profile">Profile</a>
-        </p>
-        <p class="footer-company-name">Copyright &#169 2024 <strong>Messya Carment</strong>
-            All right reserved
-        </p>
-    </div>
-    <div class="footer-center">
-        <div>
-            <i class="fa fa-map-marker"></i>
-            <p><span>Tangerang</span>
-            Banten</p>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>Inkspire Book Store</strong>
+                Inskspire is an online bookstore dedicated to bringing stories to life and making knowledge accessible to everyone. We offer a carefully curated 
+                collection across genres to inspire, enlighten, and spark curiosity in every reader. Whether you're seeking adventure, wisdom, or comfort,
+                Inskspire is here to accompany you on your literary journey.
+            </p> 
         </div>
-        <div>
-            <i class="fa fa-phone"></i>
-            <p>+62 125319115</p>
-        </div>
-        <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="">inskpire@gmail.com</a></p>
-        </div>
-
-    </div>
-
-    <div class="footer-right">
-        <p class="footer-company-about">
-            <span>About the company</span>
-            <strong>Inkspire Book Store</strong>
-            Inskspire is an online bookstore dedicated to bringing stories to life and making knowledge accessible to everyone. We offer a carefully curated 
-            collection across genres to inspire, enlighten, and spark curiosity in every reader. Whether you're seeking adventure, wisdom, or comfort,
-            Inskspire is here to accompany you on your literary journey.
-        </p> 
-    </div>
 </footer> 
 {{-- Footer Stop        --}}
+
 </body>
 </html>

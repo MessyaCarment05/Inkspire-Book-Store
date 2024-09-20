@@ -16,6 +16,7 @@ class CheckoutController extends Controller
     
     public function addCheckout(Request $request, $id)
     {
+       
         if (Auth::check()) {
             try {
                 $user = auth()->user();
@@ -117,49 +118,6 @@ class CheckoutController extends Controller
 
         return redirect()->route('login')->with('message', 'Harap login untuk melanjutkan.');
     }
-    // In your CheckoutController.php or similar
-    public function store(Request $request)
-    {
-        // Validate the payment method
-        $validated = $request->validate([
-            'payment_method' => 'required|string',
-        ]);
-
-        // Get the payment method
-        $paymentMethod = $validated['payment_method'];
-
-        // Get all items from the checkout
-        $checkoutItems = Checkout::where('checkout_user_id', auth()->id())->get();
-
-        // Iterate over each checkout item and create a receipt
-        foreach ($checkoutItems as $item) {
-            Receipt::create([
-                'receipt_user_id' => auth()->id(),
-                'receipt_book_id' => $item->checkout_book_id,
-                'receipt_category_id' => $item->checkout_category_id,
-                'receipt_book_image' => $item->checkout_book_image,
-                'receipt_book_title' => $item->checkout_book_title,
-                'receipt_book_author' => $item->checkout_book_author,
-                'receipt_book_price' => $item->checkout_book_price,
-                'receipt_book_quantity' => $item->checkout_book_quantity,
-                'receipt_book_description' => $item->checkout_book_description,
-                'payment_method' => $paymentMethod, // Add this line
-            ]);
-        }
-
-        // Optionally, you might want to remove items from the checkout
-        Checkout::where('checkout_user_id', auth()->id())->delete();
-
-        // Redirect to the receipt view
-        return view('receiptpage', ['payment_method' => $paymentMethod]);
-    }
-    public function showReceipt()
-    {
-        // Get the payment method from the session
-        $paymentMethod = session('payment_method');
-
-        // Pass data to the view
-        return view('receiptpage', ['payment_method' => $paymentMethod]);
-    }
-
+    
+    
 }

@@ -119,7 +119,7 @@
 
                     <!-- Payment Method Section -->
                     <h4 style="margin-bottom: 10px;">Choose Payment Method:</h4>
-                    <form action="{{route('checkout.store')}}" method="POST">
+                    <form action="{{ route('storeReceipt') }}" method="POST" enctype="multipart/form-data" onsubmit="console.log('Form is submitting');">
                         @csrf
                         <div style="margin-bottom: 10px;">
                             <label style="display: block; margin-bottom: 5px;">
@@ -135,8 +135,10 @@
                                 <input type="radio" name="payment_method" value="COD" style="margin-right: 10px;"> COD
                             </label>
                         </div>
+                        
                         <button type="submit" style="padding: 10px 15px; background-color: #ff9900; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px;">Proceed to Payment</button>
                     </form>
+                    
                 </div>
             </div>
         @endif
@@ -158,7 +160,7 @@
         <p class="footer-links">
             <a href="/homepage">Home</a>
             |
-            <a href="/book">Collection</a>
+            <a href="/bookcollection">Collection</a>
             |
             <a href="/contactus">Contact Us</a>
             |

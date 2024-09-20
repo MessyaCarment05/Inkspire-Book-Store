@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('receipt_book_quantity');
             $table->string('receipt_book_description');
             $table->string('payment_method');
+            $table->uuid('transaction_id');
             $table->timestamps();
         });
     }

@@ -120,7 +120,7 @@
                                             <form action="{{ route('add.cart', $bookdetail->id) }}" method="POST">
                                                 @csrf
                                                 
-                                                <button class="btn btn-primary btn-lg btn-block" style="background-color:  #e67e22; padding:1em; font-family: 'DM Sans'; font-weight: 500; font-size:1.25rem; color: white; text-decoration: none;" type="submit">
+                                                <button class="btn btn-primary btn-lg btn-block" style="background-color:  #e67e22; padding:1em; font-family: 'DM Sans'; font-weight: 500; font-size:1.25rem; color: white; text-decoration: none;" type="submit" onsubmit="console.log('Form is submitting');">
                                                     Add to cart
                                                 </button>
                                             </form>
@@ -144,7 +144,7 @@
             <p class="footer-links">
                 <a href="/homepage">Home</a>
                 |
-                <a href="/book">Collection</a>
+                <a href="/bookcollection">Collection</a>
                 |
                 <a href="/contactus">Contact Us</a>
                 |

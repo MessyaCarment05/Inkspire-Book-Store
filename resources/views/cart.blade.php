@@ -132,7 +132,7 @@
         <p class="footer-links">
             <a href="/homepage">Home</a>
             |
-            <a href="/book">Collection</a>
+            <a href="/bookcollection">Collection</a>
             |
             <a href="/contactus">Contact Us</a>
             |
