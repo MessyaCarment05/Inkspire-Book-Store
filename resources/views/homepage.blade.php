@@ -33,7 +33,7 @@
                         <a href="/contactus" class="nav-link">CONTACT US</a>
                     </div>
                     <div class="nav-menu">
-                        <a href="/profile" class="nav-link">PROFILE</a>
+                        <a href="{{ route('user.edit', ['id' => Auth::user()->id]) }}" class="nav-link">PROFILE</a>
                     </div>
                     <div class="nav-menu">
                         {{-- <a href="/cart" class="nav-link">CART</a> --}}
@@ -141,11 +141,6 @@
                 @endforeach
         </div>
     </div>
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <a href="route('logout')"><button type="submit" class="btn btn-primary btn-block" style="border-style: solid; background: rgba(251, 111, 111, 0.712); color: black; border-color: rgb(179, 179, 179); text-align: left; padding-left: 3.8rem;">Logout<i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5.3rem;"></i></button></a>
-        
-        </form>
  {{-- Book Collection End --}}
    
     {{-- Footer Start --}}
@@ -159,7 +154,7 @@
                         |
                         <a href="/contactus">Contact Us</a>
                         |
-                        <a href="/profile">Profile</a>
+                        <a href="{{ route('user.edit', ['id' => Auth::user()->id]) }}">Profile</a>
                     </p>
                     <p class="footer-company-name">Copyright &#169 2024 <strong>Messya Carment</strong>
                         All right reserved

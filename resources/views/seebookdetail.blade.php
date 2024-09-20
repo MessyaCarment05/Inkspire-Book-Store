@@ -33,7 +33,7 @@
                        <a href="/contactus" class="nav-link">CONTACT US</a>
                    </div>
                    <div class="nav-menu">
-                       <a href="/profile" class="nav-link">PROFILE</a>
+                       <a href="{{ route('user.edit', ['id' => Auth::user()->id]) }}" class="nav-link">PROFILE</a>
                    </div>
                    <div class="nav-menu">
                        {{-- <a href="/cart" class="nav-link">CART</a> --}}
@@ -148,7 +148,7 @@
                 |
                 <a href="/contactus">Contact Us</a>
                 |
-                <a href="/profile">Profile</a>
+                <a href="{{ route('user.edit', ['id' => Auth::user()->id]) }}">Profile</a>
             </p>
             <p class="footer-company-name">Copyright &#169 2024 <strong>Messya Carment</strong>
                 All right reserved

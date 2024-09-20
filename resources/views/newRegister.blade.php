@@ -37,7 +37,7 @@
                     </div>         
                     <div class="input-container">
                         <label for="phone_number">Phone Number</label>
-                        <input type="text" placeholder="0812345678" id="phone_number" name="phone_number" required>
+                        <input type="text" placeholder="081234567895" id="phone_number" name="phone_number" required>
                     </div>
                     <div class="input-container">
                         <label for="email">Address</label>

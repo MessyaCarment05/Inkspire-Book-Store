@@ -7,6 +7,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\BookCollectionController;
 use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\UserProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('user.edit');
+    Route::post('/profile/update', [UserProfileController::class, 'updateProfile'])->name('user.updateProfile');
+    Route::post('/profile/update-password', [UserProfileController::class, 'updatePassword'])->name('user.UpdatePassword');
+     
     // Homepage Routes
     Route::get('/homepage', [HomepageController::class, 'indexHomepage']);
     // Book Detail Routes

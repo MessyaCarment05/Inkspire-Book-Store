@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Transaction Receipt</title>
-    <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/receipt.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -89,7 +89,7 @@
                     <a href="/contactus" class="nav-link">CONTACT US</a>
                 </div>
                 <div class="nav-menu">
-                    <a href="/profile" class="nav-link">PROFILE</a>
+                    <a href="{{ route('user.edit', ['id' => Auth::user()->id]) }}" class="nav-link">PROFILE</a>
                 </div>
                 <div class="nav-menu">
                     <a href="/cart" style="text-decoration: none;" class="nav-link">
@@ -174,7 +174,7 @@
                 |
                 <a href="/contactus">Contact Us</a>
                 |
-                <a href="/profile">Profile</a>
+                <a href="{{ route('user.edit', ['id' => Auth::user()->id]) }}">Profile</a>
             </p>
             <p class="footer-company-name">Copyright &#169 2024 <strong>Messya Carment</strong>
                 All rights reserved

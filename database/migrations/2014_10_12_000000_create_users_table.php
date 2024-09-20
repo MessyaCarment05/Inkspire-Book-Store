@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('address');
             $table->string('password');
-            $table->string('admin_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
