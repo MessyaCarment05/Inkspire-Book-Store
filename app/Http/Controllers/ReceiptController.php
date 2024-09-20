@@ -17,7 +17,6 @@ class ReceiptController extends Controller
     
     public function store(Request $request)
     {
-        // dd('Store function is executed');
         $user_id = auth()->id(); // Ambil ID user yang sedang login
         $checkoutItems = Checkout::where('checkout_user_id', $user_id)->get(); // Ambil semua item checkout untuk user ini
         print($checkoutItems);
@@ -63,7 +62,7 @@ class ReceiptController extends Controller
         return view('receiptpage', [
             'receipts' => $receipts,
             'transaction_id' => $transaction_id,
-            'payment_method' => $payment_method // Tambahkan payment_method di sini
+            'payment_method' => $payment_method 
         ]);
     }
     
