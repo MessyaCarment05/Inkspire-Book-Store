@@ -1,0 +1,300 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding:0 24px;
+    align-items: center;
+  
+}
+header{
+    position: sticky;
+    top:0;
+    left:0;
+    right: 0;
+    width: 100%;
+    background-color:#e0ac1a;
+    z-index: 1000; 
+}
+.nav-right-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:40px;
+    
+ 
+}
+.nav-link{
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+    transition: 0.5s ease;
+}
+
+.nav-link:hover{
+    color: black;
+}
+/* Content */
+.contact
+{
+    position: relative;
+    min-height:100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url('../pics/contactus.jpg');
+    background-size: cover;
+}
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+.contact .content h2{
+    font-size: 36px;
+    font-weight: 500;
+    color: #fff;
+}
+.contact .content p{
+   
+    font-weight: 300;
+    color: #fff;
+}
+.container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:30px;
+}
+.container .contactInfo{
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+}
+
+.container .contactInfo .box{
+    position: relative;
+    padding : 20px 0;
+    display: flex;
+ }
+ .container .contactInfo .box .icon{
+    min-width: 60px;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size:22px;
+ }
+ .container .contactInfo .box .text{
+   display: flex;
+   margin-left:20px;
+   font-size:16px;
+   color:#fff;
+   flex-direction: column;
+   font-weight: 300;
+ }
+ .container .contactInfo .box .text h3{
+    
+    font-weight: 500;
+    color : #e0ac1c;
+}
+.contactForm{
+    width : 40%;
+    padding : 40px;
+    background: #fff;
+}
+.contactForm h2{
+    font-size :30px;
+    color: #333;
+    font-weight: 500;
+}
+.contactForm .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox input,
+.contactForm .inputBox textarea{
+   width: 100%;
+   padding : 5px 0;
+   font-size :16px;
+   margin: 10px 0;
+   border: none;
+   border-bottom: 2px solid #333;
+   outline: none;
+   resize: none;
+}
+.contactForm .inputBox span{
+    position: absolute;
+    left:0;
+    padding : 5px 0;
+   font-size :16px;
+   margin: 10px 0;
+   pointer-events: none;
+   transition: 0.5s;
+   color : #666;
+
+}
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span{
+    color: #e91e63;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contactForm .inputBox input[type="submit"]{
+    width: 100px;;
+    background-color: #e0ac1c;
+    color : #fff;
+    border :none;
+    cursor: pointer;
+    padding : 10px;
+    font-size : 18px;
+}
+/* 
+Footer */
+.footer
+{
+    background-color: #2d2a30;
+   
+    box-sizing:border-box;
+    widows:100%;
+    text-align:left;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;
+   
+}
+.footer .footer-left, .footer .footer-center, .footer .footer-right
+{
+    display: inline-block;
+    vertical-align: top;
+    ;
+}
+
+.footer .footer-left
+{
+    width:30%
+
+}
+
+.footer h3
+{
+    color:#ffff;
+    font: normal 36px 'cookie', cursive;
+    margin:0;
+}
+
+.footer h3 span
+{
+    font: normal 36px 'cookie', cursive;
+    color:#e0ac1c;
+}
+
+.footer .footer-links
+{
+    color:#ffff;
+    margin: 20px 0 12px;
+}
+
+.footer .footer-links a
+{
+    display: inline-block;
+    line-height:1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer .footer-company-name
+{
+    color: #8f9296;
+    font-size:14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer .footer-center
+{
+    width: 35%;
+}
+
+.footer .footer-center i
+{
+    background-color: #33383b;
+    color: #ffff;
+    font-size: 25px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    text-align: center;
+    line-height:42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer .footer-center i.fa-envelope
+{
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer .footer-center p
+{
+    display: inline-block;
+    color: #ffff;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer .footer-center p span{
+    display: block;
+    font-weight: normal;
+    font-size :14px;
+    line-height:2;
+}
+
+.footer .footer-center p a
+{
+    /* color: #e0ac1a; */
+    color:white;
+    text-decoration: none;
+}
+
+.footer .footer-right
+{
+    width:30%;
+}
+
+.footer .footer-company-about
+{
+    line-height: 20px;
+    color : #92999f;
+    font-size:13px;
+    font-weight:normal;
+    margin:0;
+}
+
+.footer .footer-company-about span
+{
+    display: block;
+    color: #ffff;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.footer-links a:hover
+{
+    color:  #e67e22
+}

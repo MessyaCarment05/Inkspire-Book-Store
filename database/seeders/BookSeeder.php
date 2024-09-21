@@ -33,7 +33,7 @@ class BookSeeder extends Seeder
             'category_id' => $science,
             'book_image' => 'pics/book1.png',
             'book_title' => 'Introduction to Science',
-            'book_author' => 'Author A',
+            'book_author' => 'Oliver Stanton',
             'book_price' => 120000,
             'book_quantity' => 10,
             'book_description' => 'A comprehensive guide to the fundamentals of science.',
@@ -41,9 +41,9 @@ class BookSeeder extends Seeder
         //Buku 2
         Book::create([
             'category_id' => $aerospace,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book3.jpg',
             'book_title' => 'Aerospace Engineering Basics',
-            'book_author' => 'Author B',
+            'book_author' => 'Amelia Smith',
             'book_price' => 150000,
             'book_quantity' => 5,
             'book_description' => 'An introduction to aerospace engineering concepts.',
@@ -51,9 +51,9 @@ class BookSeeder extends Seeder
         //Buku 3
         Book::create([
             'category_id' => $literature,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book2.jpg',
             'book_title' => 'Modern Literature',
-            'book_author' => 'Author C',
+            'book_author' => 'Louis Kensington',
             'book_price' => 110000,
             'book_quantity' => 15,
             'book_description' => 'A study of modern literary works and their impact.',
@@ -61,9 +61,9 @@ class BookSeeder extends Seeder
           //Buku 4
         Book::create([
             'category_id' => $psychology,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book3.jpg',
             'book_title' => 'Understanding Psychology',
-            'book_author' => 'Author D',
+            'book_author' => 'Lily Brown',
             'book_price' => 130000,
             'book_quantity' => 8,
             'book_description' => 'An introduction to psychological theories and practices.',
@@ -71,9 +71,9 @@ class BookSeeder extends Seeder
          //Buku 5
         Book::create([
             'category_id' => $business,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book4.jpg',
             'book_title' => 'Business Management Essentials',
-            'book_author' => 'Author E',
+            'book_author' => 'Derrick Watson',
             'book_price' => 140000,
             'book_quantity' => 12,
             'book_description' => 'Key principles of effective business management.',
@@ -81,9 +81,9 @@ class BookSeeder extends Seeder
         //Buku 6
         Book::create([
             'category_id' => $accounting,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book2.jpg',
             'book_title' => 'Principles of Accounting',
-            'book_author' => 'Author F',
+            'book_author' => 'Theodore Warrick',
             'book_price' => 125000,
             'book_quantity' => 6,
             'book_description' => 'Fundamentals of accounting and financial reporting.',
@@ -91,9 +91,9 @@ class BookSeeder extends Seeder
         //Buku 7
         Book::create([
             'category_id' => $marketing,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book4.jpg',
             'book_title' => 'Marketing Strategies',
-            'book_author' => 'Author G',
+            'book_author' => 'Simon Winslow',
             'book_price' => 160000,
             'book_quantity' => 10,
             'book_description' => 'Effective strategies for successful marketing campaigns.',
@@ -103,7 +103,7 @@ class BookSeeder extends Seeder
             'category_id' => $database,
             'book_image' => 'pics/book1.png',
             'book_title' => 'Database Management Systems',
-            'book_author' => 'Author H',
+            'book_author' => 'Michael Smith',
             'book_price' => 170000,
             'book_quantity' => 7,
             'book_description' => 'Comprehensive overview of database management systems.',
@@ -111,9 +111,9 @@ class BookSeeder extends Seeder
         //Buku 9
         Book::create([
             'category_id' => $technology,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book3.jpg',
             'book_title' => 'Technology Innovations',
-            'book_author' => 'Author I',
+            'book_author' => 'Nicholas Carrington',
             'book_price' => 180000,
             'book_quantity' => 14,
             'book_description' => 'Exploration of recent technological innovations.',
@@ -121,9 +121,9 @@ class BookSeeder extends Seeder
         //Buku 10
         Book::create([
             'category_id' => $economics,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book2.jpg',
             'book_title' => 'Economics 101',
-            'book_author' => 'Author J',
+            'book_author' => 'Richard Ford',
             'book_price' => 140000,
             'book_quantity' => 9,
             'book_description' => 'Basic principles of economics and their applications.',
@@ -131,9 +131,9 @@ class BookSeeder extends Seeder
         //Buku 11
         Book::create([
             'category_id' => $science,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book4.jpg',
             'book_title' => 'Advanced Science Concepts',
-            'book_author' => 'Author K',
+            'book_author' => 'Lucas White',
             'book_price' => 190000,
             'book_quantity' => 8,
             'book_description' => 'In-depth exploration of advanced science topics.',
@@ -141,9 +141,9 @@ class BookSeeder extends Seeder
         //Buku 12
         Book::create([
             'category_id' => $aerospace,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book3.jpg',
             'book_title' => 'Space Exploration Technologies',
-            'book_author' => 'Author L',
+            'book_author' => 'James Lee',
             'book_price' => 200000,
             'book_quantity' => 4,
             'book_description' => 'Technologies and advancements in space exploration.',
@@ -153,7 +153,7 @@ class BookSeeder extends Seeder
             'category_id' => $literature,
             'book_image' => 'pics/book1.png',
             'book_title' => 'Classic Literary Works',
-            'book_author' => 'Author M',
+            'book_author' => 'William Wilson',
             'book_price' => 110000,
             'book_quantity' => 11,
             'book_description' => 'Analysis of classic works of literature.',
@@ -161,9 +161,9 @@ class BookSeeder extends Seeder
         //Buku 14
         Book::create([
             'category_id' => $psychology,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book2.jpg',
             'book_title' => 'Cognitive Behavioral Therapy',
-            'book_author' => 'Author N',
+            'book_author' => 'Fiona Brown',
             'book_price' => 155000,
             'book_quantity' => 6,
             'book_description' => 'Techniques and theories in cognitive behavioral therapy.',
@@ -171,9 +171,9 @@ class BookSeeder extends Seeder
         //Buku 15
         Book::create([
             'category_id' => $business,
-            'book_image' => 'pics/book1.png',
+            'book_image' => 'pics/book3.jpg',
             'book_title' => 'Entrepreneurship and Innovation',
-            'book_author' => 'Author O',
+            'book_author' => 'Henry Smith',
             'book_price' => 165000,
             'book_quantity' => 9,
             'book_description' => 'Principles of entrepreneurship and innovative thinking.',

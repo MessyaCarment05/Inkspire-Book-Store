@@ -23,16 +23,9 @@ Route::get('/', function () {
     return view('splashscreen');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     
     // User Profile
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('user.edit');
     Route::post('/profile/update', [UserProfileController::class, 'updateProfile'])->name('user.updateProfile');
     Route::post('/profile/update-password', [UserProfileController::class, 'updatePassword'])->name('user.UpdatePassword');
@@ -59,6 +52,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/store-receipt', [ReceiptController::class, 'store'])->name('storeReceipt');
     // Show Receipt
     Route::get('/receipt/{transaction_id}', [ReceiptController::class, 'showReceipt'])->name('showReceipt');
+    // Contact Us
+    Route::get('/contactus', function () {
+        return view('contactus');
+    });
 
 
 
