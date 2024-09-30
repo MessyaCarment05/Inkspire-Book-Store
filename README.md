@@ -12,15 +12,15 @@
 8. To insert book and category data, run the commands `php artisan db:seed --class=CategorySeeder` and `php artisan db:seed --class=BookSeeder`.
 9. Finally, run the command `php artisan serve` in the terminal.
    
-## Software used:
+## Software used :
 - XAMPP 8.1.10
 - Composer 2.4.3
 - Visual Studio Code 1.90.2
 
-## Framework used:
+## Framework used :
 - Laravel 10.48.11
 
-## Programming Languages used:
+## Programming Languages used :
 - PHP 8.1.10
 - CSS
 - JavaScript
